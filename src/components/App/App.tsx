@@ -1,9 +1,12 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { ROUTES } from 'constants/routes';
+import selectors from 'redux/news-selectors';
 import NavBar from 'components/NavBar/NavBar';
+import Loader from 'components/Loader/Loader';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,27 +16,24 @@ const lazyPages = {
   ProfilePage: lazy(() => import('pages/ProfilePage/ProfilePage')),
 };
 
-const router = createBrowserRouter([
-  {
-    path: ROUTES.HOME.path,
-    element: <lazyPages.HomePage />,
-  },
-  {
-    path: ROUTES.NEWS.path,
-    element: <lazyPages.NewsPage />,
-  },
-  {
-    path: ROUTES.PROFILE.path,
-    element: <lazyPages.ProfilePage />,
-  },
-]);
-
 const App = () => {
+  const isLoading = useSelector(selectors.getIsLoading);
+
   return (
     <>
       <ToastContainer />
       <NavBar />
-      <RouterProvider router={router} />
+      {isLoading && <Loader />}
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path={ROUTES.HOME.path} element={<lazyPages.HomePage />} />
+          <Route path={ROUTES.NEWS.path} element={<lazyPages.NewsPage />} />
+          <Route
+            path={ROUTES.PROFILE.path}
+            element={<lazyPages.ProfilePage />}
+          />
+        </Routes>
+      </Suspense>
     </>
   );
 };

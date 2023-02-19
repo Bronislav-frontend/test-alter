@@ -1,28 +1,23 @@
-export interface NewsItem {
-  id: number;
-  featured: boolean;
+export interface NewsStateItem {
   title: string;
-  url: string;
-  imageUrl: string;
-  newsSite: string;
-  summary: string;
-  publishedAt: string;
-  launches: [
-    {
-      id: string;
-      provider: string;
-    },
-  ];
-  events: [
-    {
-      id: string;
-      provider: string;
-    },
-  ];
+  link: string;
+  keywords: null | string[];
+  creator: null | string[];
+  video_url: null | string;
+  description: string;
+  content: null | string;
+  pubDate: string;
+  image_url: null | string;
+  source_id: string;
+  country: [] | string[];
+  category: [] | string[];
+  language: string;
 }
 
-export interface NewsList {
-  newsList: {
-    newsArray: [] | NewsItem[];
-  };
+export interface NewsState {
+  status: string;
+  isLoading: boolean;
+  totalResults: number;
+  results: [] | NewsStateItem[];
+  nextPage: string;
 }

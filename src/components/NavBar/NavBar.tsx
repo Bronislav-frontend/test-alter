@@ -1,10 +1,15 @@
-import { AppBar, Box, Link, Toolbar, Button } from '@mui/material';
+import { AppBar, Box, Toolbar } from '@mui/material';
+import { NavLink } from 'react-router-dom';
+import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
 
 import { ROUTES } from 'constants/routes';
+import Logo from 'components/Logo/Logo';
 
 const NavBar = () => {
+  const onLoadMore = () => {};
+
   return (
-    <AppBar position="static" color="secondary">
+    <AppBar position="sticky" sx={{ backgroundColor: '#477cdd' }}>
       <Box
         sx={{
           display: 'flex',
@@ -12,23 +17,23 @@ const NavBar = () => {
           alignItems: 'center',
         }}
       >
-        <Toolbar component="nav" variant="dense" sx={{ overflowX: 'auto' }}>
+        <Toolbar component="nav" variant="dense">
+          <Logo />
           {Object.values(ROUTES).map(route => (
-            <Link
-              underline="none"
-              color="inherit"
-              noWrap
+            <Box
               key={route.title}
-              href={route.path}
-              sx={{ p: 1, flexShrink: 0 }}
+              sx={{ display: 'flex', alignItems: 'center', padding: '4px' }}
             >
-              {route.title}
-            </Link>
+              <NavLink
+                to={route.path}
+                className={({ isActive }) => (isActive ? 'active' : '')}
+              >
+                {route.title}
+              </NavLink>
+            </Box>
           ))}
         </Toolbar>
-        <Box>
-          <Button variant="contained">Log in</Button>
-        </Box>
+        <ButtonComponent text="Log in" handleClick={onLoadMore} />
       </Box>
     </AppBar>
   );

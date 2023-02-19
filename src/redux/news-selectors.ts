@@ -1,5 +1,17 @@
-import { NewsList } from 'interfaces/interfaces';
+import { NewsState } from 'interfaces/interfaces';
 
-const getNewsList = (state: NewsList) => state.newsList.newsArray;
+interface StateArg {
+  newsList: NewsState;
+}
 
-export default getNewsList;
+const getNewsList = (state: StateArg) => state.newsList.results;
+const getNextPageNews = (state: StateArg) => state.newsList.nextPage;
+const getIsLoading = (state: StateArg) => state.newsList.isLoading;
+
+const selectors = {
+  getNewsList,
+  getNextPageNews,
+  getIsLoading,
+};
+
+export default selectors;
