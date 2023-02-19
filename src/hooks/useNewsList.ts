@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from 'redux/store';
-import selectors from 'redux/news-selectors';
-import operations from 'redux/news-operations';
+import selectors from 'redux/news/news-selectors';
+import operations from 'redux/news/news-operations';
 import { NewsStateItem } from 'interfaces/interfaces';
 
-export const useCharsList = () => {
+export const useNewsList = () => {
   const dispatch = useDispatch<AppDispatch>();
   const newsArray: NewsStateItem[] = useSelector(selectors.getNewsList);
   const nextPage: string = useSelector(selectors.getNextPageNews);

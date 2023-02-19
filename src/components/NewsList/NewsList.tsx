@@ -3,13 +3,13 @@ import { Box, Grid } from '@mui/material';
 import NewsItem from 'components/NewsItem/NewsItem';
 import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
 
-import { useCharsList } from 'hooks/useNewsList';
+import { useNewsList } from 'hooks/useNewsList';
 import { NewsStateItem } from 'interfaces/interfaces';
 
 import deafultNewsPicture from 'assets/images/default.png';
 
 const NewsList = () => {
-  const { newsArray, onLoadMore } = useCharsList();
+  const { newsArray, onLoadMore } = useNewsList();
 
   return (
     <>
@@ -28,7 +28,7 @@ const NewsList = () => {
         ))}
       </Grid>
       <Box display="flex" justifyContent="center" paddingBottom={4}>
-        <ButtonComponent text="Load more" handleClick={onLoadMore} />
+        <ButtonComponent text="Load more" onClick={onLoadMore} />
       </Box>
     </>
   );

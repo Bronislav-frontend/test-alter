@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-import { removeNewsItem } from 'redux/news-slice';
+import { removeNewsItem } from 'redux/news/news-slice';
 
 import closeIcon from 'assets/images/cross.svg';
 

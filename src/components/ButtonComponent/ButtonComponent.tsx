@@ -2,15 +2,15 @@ import { Box, Button } from '@mui/material';
 
 interface IProps {
   text: string;
-  handleClick: () => void;
+  onClick: () => void;
 }
 
-const ButtonComponent = ({ text, handleClick }: IProps) => {
+const ButtonComponent = ({ text, onClick }: IProps) => {
   return (
     <Box>
       <Button
         variant="outlined"
-        onClick={handleClick}
+        onClick={onClick}
         sx={{ backgroundColor: '#e4e35a', color: '#c444cf' }}
       >
         {text}

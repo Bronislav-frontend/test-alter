@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { ROUTES } from 'constants/routes';
-import selectors from 'redux/news-selectors';
+import selectors from 'redux/news/news-selectors';
 import NavBar from 'components/NavBar/NavBar';
 import Loader from 'components/Loader/Loader';
 
