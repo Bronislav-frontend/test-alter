@@ -39,6 +39,7 @@ const NewsItem = ({ image, title, summary }: IProps) => {
           top: '50px',
           width: '20px',
           height: '20px',
+          cursor: 'pointer',
         }}
       />
 

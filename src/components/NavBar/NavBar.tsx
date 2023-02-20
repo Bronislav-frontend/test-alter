@@ -3,18 +3,11 @@ import { NavLink } from 'react-router-dom';
 
 import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
 import Logo from 'components/Logo/Logo';
-import ModalComponent from 'components/ModalComponent/ModalComponent';
-import useModal from 'hooks/useModal';
 import { ROUTES } from 'constants/routes';
 
 const NavBar = () => {
-  const { isOpen, toggle } = useModal();
-
   return (
     <>
-      {isOpen && (
-        <ModalComponent isOpen={isOpen} toggle={toggle}></ModalComponent>
-      )}
       <AppBar position="sticky" sx={{ backgroundColor: '#477cdd' }}>
         <Box
           sx={{
@@ -39,7 +32,7 @@ const NavBar = () => {
               </Box>
             ))}
           </Toolbar>
-          <ButtonComponent text="Log in" onClick={() => toggle()} />
+          <ButtonComponent text="Log in" onClick={() => {}} />
         </Box>
       </AppBar>
     </>

@@ -1,4 +1,7 @@
 import { Box, Grid } from '@mui/material';
+import { useSelector } from 'react-redux';
+
+import selectors from 'redux/news/news-selectors';
 
 import NewsItem from 'components/NewsItem/NewsItem';
 import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
@@ -10,6 +13,7 @@ import deafultNewsPicture from 'assets/images/default.png';
 
 const NewsList = () => {
   const { newsArray, onLoadMore } = useNewsList();
+  const isLoading = useSelector(selectors.getIsLoading);
 
   return (
     <>
@@ -28,7 +32,11 @@ const NewsList = () => {
         ))}
       </Grid>
       <Box display="flex" justifyContent="center" paddingBottom={4}>
-        <ButtonComponent text="Load more" onClick={onLoadMore} />
+        <ButtonComponent
+          text="Load more"
+          onClick={onLoadMore}
+          isDisabled={isLoading}
+        />
       </Box>
     </>
   );

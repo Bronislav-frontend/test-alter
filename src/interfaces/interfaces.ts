@@ -21,3 +21,7 @@ export interface NewsState {
   results: [] | NewsStateItem[];
   nextPage: string;
 }
+
+export interface AuthState {
+  isLoggedIn: boolean;
+}
