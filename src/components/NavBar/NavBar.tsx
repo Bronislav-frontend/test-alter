@@ -2,12 +2,17 @@ import { AppBar, Box, Toolbar } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
+import ModalComponent from 'components/ModalComponent/ModalComponent';
+import { useModal } from 'hooks/useModal';
 import Logo from 'components/Logo/Logo';
 import { ROUTES } from 'constants/routes';
 
 const NavBar = () => {
+  const { isOpen, toggler } = useModal();
+
   return (
     <>
+      <ModalComponent isOpen={isOpen} toggle={toggler} />
       <AppBar position="sticky" sx={{ backgroundColor: '#477cdd' }}>
         <Box
           sx={{
@@ -25,14 +30,16 @@ const NavBar = () => {
               >
                 <NavLink
                   to={route.path}
-                  className={({ isActive }) => (isActive ? 'active' : '')}
+                  className={({ isActive }) =>
+                    isActive ? 'active' : 'pending'
+                  }
                 >
                   {route.title}
                 </NavLink>
               </Box>
             ))}
           </Toolbar>
-          <ButtonComponent text="Log in" onClick={() => {}} />
+          <ButtonComponent text="Log in" onClick={toggler} />
         </Box>
       </AppBar>
     </>

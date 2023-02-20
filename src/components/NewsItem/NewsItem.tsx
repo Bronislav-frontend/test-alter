@@ -47,7 +47,7 @@ const NewsItem = ({ image, title, summary }: IProps) => {
         component="img"
         height={400}
         image={image}
-        alt="photo of an author"
+        alt="photo of a new"
       />
       <CardContent
         sx={{

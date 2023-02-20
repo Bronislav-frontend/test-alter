@@ -1,11 +1,13 @@
-import { Avatar, Box } from '@mui/material';
+import { Avatar, Box, Link } from '@mui/material';
 
 import logoImage from 'assets/images/logo.jpg';
 
 const Logo = () => {
   return (
     <Box sx={{ marginRight: '10px' }}>
-      <Avatar src={logoImage} />
+      <Link href="/">
+        <Avatar src={logoImage} />
+      </Link>
     </Box>
   );
 };

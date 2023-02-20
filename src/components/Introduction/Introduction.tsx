@@ -1,4 +1,10 @@
-import { Typography, Box, Link } from '@mui/material';
+import { Typography, Box, Link, CardMedia, keyframes } from '@mui/material';
+import fundLogo from 'assets/images/fundLogo.svg';
+
+const bounce = keyframes`
+0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+40% {transform: translateY(-20px);} 
+60% {transform: translateY(-15px);} `;
 
 const Introduction = () => {
   return (
@@ -29,7 +35,10 @@ const Introduction = () => {
           finish this crimes against humanity. For your comfort you can find a
           link to one of those funds below.
         </Typography>
-        <Typography variant="h2" sx={{ color: 'white' }}>
+        <Typography
+          variant="h2"
+          sx={{ color: 'white', animation: `${bounce} 1s infinite ease` }}
+        >
           &#9759;
         </Typography>
         <Link
@@ -40,7 +49,12 @@ const Introduction = () => {
           underline="none"
           sx={{ color: '#e7e35b' }}
         >
-          "Come back alive" fund
+          <CardMedia
+            component="img"
+            height={200}
+            image={fundLogo}
+            alt="logo of a fund <Come back alive>"
+          />
         </Link>
       </Box>
     </Box>
