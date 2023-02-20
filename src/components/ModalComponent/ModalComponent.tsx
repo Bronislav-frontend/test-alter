@@ -1,12 +1,12 @@
-import { Modal, Box, Typography } from '@mui/material';
-import { useModal } from 'hooks/useModal';
+import { Modal, Box } from '@mui/material';
 
 interface IProps {
   isOpen: boolean;
   toggle: () => void;
+  children?: React.ReactNode;
 }
 
-const ModalComponent = ({ isOpen, toggle }: IProps) => {
+const ModalComponent = ({ isOpen, toggle, children }: IProps) => {
   return (
     <Modal
       open={isOpen}
@@ -27,12 +27,7 @@ const ModalComponent = ({ isOpen, toggle }: IProps) => {
           p: 4,
         }}
       >
-        <Typography id="modal-modal-title" variant="h6" component="h2">
-          Text in a modal
-        </Typography>
-        <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-        </Typography>
+        {children}
       </Box>
     </Modal>
   );

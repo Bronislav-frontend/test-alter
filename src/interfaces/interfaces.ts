@@ -23,5 +23,6 @@ export interface NewsState {
 }
 
 export interface AuthState {
+  userName: string;
   isLoggedIn: boolean;
 }

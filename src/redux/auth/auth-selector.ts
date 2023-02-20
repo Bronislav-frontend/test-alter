@@ -5,5 +5,11 @@ interface StateArg {
 }
 
 const getIsLoggedIn = (state: StateArg) => state.auth.isLoggedIn;
+const getUserName = (state: StateArg) => state.auth.userName;
 
-export default getIsLoggedIn;
+const authSelectors = {
+  getIsLoggedIn,
+  getUserName,
+};
+
+export default authSelectors;
