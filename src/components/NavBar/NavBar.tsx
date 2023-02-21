@@ -1,28 +1,20 @@
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Toolbar } from '@mui/material';
 import { NavLink } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-
-import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
+import Logo from 'components/Logo/Logo';
 import ModalComponent from 'components/ModalComponent/ModalComponent';
 import LoginForm from 'components/LoginForm/LoginForm';
-import Logo from 'components/Logo/Logo';
+import AuthBar from 'components/AuthBar/AuthBar';
 
 import { useModal } from 'hooks/useModal';
 import { ROUTES } from 'constants/routes';
-import authSelectors from 'redux/auth/auth-selector';
-import { logOut } from 'redux/auth/auth-slice';
 
 const NavBar = () => {
-  const dispatch = useDispatch();
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const userName = useSelector(authSelectors.getUserName);
-
-  const { isOpen, toggler } = useModal();
+  const { isOpen, modalToggle } = useModal();
 
   return (
     <>
-      <ModalComponent isOpen={isOpen} toggle={toggler}>
-        <LoginForm modalClose={toggler} />
+      <ModalComponent isOpen={isOpen} modalClose={modalToggle}>
+        <LoginForm modalClose={modalToggle} />
       </ModalComponent>
       <AppBar position="sticky" sx={{ backgroundColor: '#477cdd' }}>
         <Box
@@ -50,18 +42,7 @@ const NavBar = () => {
               </Box>
             ))}
           </Toolbar>
-          {!isLoggedIn && <ButtonComponent text="Log in" onClick={toggler} />}
-          {isLoggedIn && (
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <Typography sx={{ marginRight: '20px' }}>
-                Welcome, {userName}
-              </Typography>
-              <ButtonComponent
-                text="Log out"
-                onClick={() => dispatch(logOut())}
-              />
-            </Box>
-          )}
+          <AuthBar modalToggle={modalToggle} />
         </Box>
       </AppBar>
     </>

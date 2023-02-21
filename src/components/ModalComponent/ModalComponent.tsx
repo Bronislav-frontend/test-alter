@@ -2,15 +2,15 @@ import { Modal, Box } from '@mui/material';
 
 interface IProps {
   isOpen: boolean;
-  toggle: () => void;
+  modalClose: () => void;
   children?: React.ReactNode;
 }
 
-const ModalComponent = ({ isOpen, toggle, children }: IProps) => {
+const ModalComponent = ({ isOpen, modalClose, children }: IProps) => {
   return (
     <Modal
       open={isOpen}
-      onClose={toggle}
+      onClose={modalClose}
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >

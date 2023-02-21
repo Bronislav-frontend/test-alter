@@ -32,7 +32,7 @@ const Introduction = () => {
           from USA, United Kingdom and my country, which is fighting for it's
           own freedom and we need help. You can help by donation to funds that
           are helping in this war. Every drop matters, so, please, help us
-          finish this crimes against humanity. For your comfort you can find a
+          finish those crimes against humanity. For your comfort you can find a
           link to one of those funds below.
         </Typography>
         <Typography
