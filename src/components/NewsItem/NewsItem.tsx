@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import {
   Grid,
   Typography,
@@ -5,7 +7,6 @@ import {
   CardContent,
   Avatar,
 } from '@mui/material';
-import { useDispatch } from 'react-redux';
 
 import { removeNewsItem } from 'redux/news/news-slice';
 
@@ -32,7 +33,10 @@ const NewsItem = ({ image, title, summary }: IProps) => {
     >
       <Avatar
         src={closeIcon}
-        onClick={() => dispatch(removeNewsItem(title))}
+        onClick={() => {
+          dispatch(removeNewsItem(title));
+          toast.warn(`The new with a title ${title} was successfuly deleted`);
+        }}
         sx={{
           position: 'absolute',
           right: '4px',

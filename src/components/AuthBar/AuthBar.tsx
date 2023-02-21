@@ -19,7 +19,7 @@ const AuthBar = ({ modalToggle }: IProps) => {
       {!isLoggedIn && <ButtonComponent text="Log in" onClick={modalToggle} />}
       {isLoggedIn && (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography sx={{ marginRight: '20px' }}>
+          <Typography sx={{ marginRight: '20px', color: '#e4e35a' }}>
             Welcome, {userName}
           </Typography>
           <ButtonComponent text="Log out" onClick={() => dispatch(logOut())} />
