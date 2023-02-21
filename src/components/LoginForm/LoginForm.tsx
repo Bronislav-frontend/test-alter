@@ -54,7 +54,6 @@ const LoginForm = ({ modalClose }: IProps) => {
             id="login"
             label="Login"
             name="login"
-            autoComplete="off"
             autoFocus
           />
           <TextField
@@ -69,7 +68,6 @@ const LoginForm = ({ modalClose }: IProps) => {
             label="Password"
             type="password"
             id="password"
-            autoComplete="off"
             sx={{ marginBottom: '60px' }}
           />
           <ButtonComponent text="Log In" type="submit" />

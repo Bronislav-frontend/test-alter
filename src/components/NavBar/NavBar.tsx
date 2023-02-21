@@ -1,12 +1,11 @@
 import { AppBar, Box, Toolbar } from '@mui/material';
-import { NavLink } from 'react-router-dom';
 import Logo from 'components/Logo/Logo';
 import ModalComponent from 'components/ModalComponent/ModalComponent';
 import LoginForm from 'components/LoginForm/LoginForm';
 import AuthBar from 'components/AuthBar/AuthBar';
 
 import { useModal } from 'hooks/useModal';
-import { ROUTES } from 'constants/routes';
+import NavLinksList from 'components/NavLinksList/NavLinks';
 
 const NavBar = () => {
   const { isOpen, modalToggle } = useModal();
@@ -26,21 +25,7 @@ const NavBar = () => {
         >
           <Toolbar component="nav" variant="dense">
             <Logo />
-            {Object.values(ROUTES).map(route => (
-              <Box
-                key={route.title}
-                sx={{ display: 'flex', alignItems: 'center', padding: '4px' }}
-              >
-                <NavLink
-                  to={route.path}
-                  className={({ isActive }) =>
-                    isActive ? 'active' : 'pending'
-                  }
-                >
-                  {route.title}
-                </NavLink>
-              </Box>
-            ))}
+            <NavLinksList />
           </Toolbar>
           <AuthBar modalToggle={modalToggle} />
         </Box>

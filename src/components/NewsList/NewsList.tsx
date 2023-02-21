@@ -2,12 +2,11 @@ import { Box, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 import selectors from 'redux/news/news-selectors';
+import { useNewsList } from 'hooks/useNewsList';
+import { NewsStateItem } from 'interfaces/interfaces';
 
 import NewsItem from 'components/NewsItem/NewsItem';
 import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
-
-import { useNewsList } from 'hooks/useNewsList';
-import { NewsStateItem } from 'interfaces/interfaces';
 
 import deafultNewsPicture from 'assets/images/default.png';
 
@@ -18,16 +17,12 @@ const NewsList = () => {
   return (
     <>
       <Grid container padding={4} spacing={6}>
-        {newsArray.map((charsItem: NewsStateItem, index) => (
+        {newsArray.map((newsItem: NewsStateItem, index) => (
           <NewsItem
-            key={`${index} + ${charsItem.title}`}
-            image={
-              charsItem.image_url ? charsItem.image_url : deafultNewsPicture
-            }
-            title={charsItem.title}
-            summary={
-              charsItem.content ? charsItem.content : charsItem.description
-            }
+            key={`${index} + ${newsItem.title}`}
+            image={newsItem.image_url ? newsItem.image_url : deafultNewsPicture}
+            title={newsItem.title}
+            summary={newsItem.content ? newsItem.content : newsItem.description}
           />
         ))}
       </Grid>
