@@ -1,14 +1,14 @@
 export const ROUTES = {
   HOME: {
     path: '/',
-    title: 'Home',
+    title: 'home',
   },
   NEWS: {
     path: '/news',
-    title: 'News',
+    title: 'news',
   },
   PROFILE: {
     path: '/profile',
-    title: 'Profile',
+    title: 'profile',
   },
 };

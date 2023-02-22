@@ -4,12 +4,6 @@ interface StateArg {
   auth: AuthState;
 }
 
-const getIsLoggedIn = (state: StateArg) => state.auth.isLoggedIn;
-const getUserName = (state: StateArg) => state.auth.userName;
+const getAuthInfo = (state: StateArg) => state.auth;
 
-const authSelectors = {
-  getIsLoggedIn,
-  getUserName,
-};
-
-export default authSelectors;
+export default getAuthInfo;

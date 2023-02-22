@@ -1,9 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Typography, Box } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
 
-import authSelectors from 'redux/auth/auth-selector';
+import getAuthInfo from 'redux/auth/auth-selector';
 import { logOut } from 'redux/auth/auth-slice';
 
 interface IProps {
@@ -11,18 +12,24 @@ interface IProps {
 }
 
 const AuthBar = ({ modalToggle }: IProps) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  const userName = useSelector(authSelectors.getUserName);
+  const { isLoggedIn, userName } = useSelector(getAuthInfo);
+
   return (
     <>
-      {!isLoggedIn && <ButtonComponent text="Log in" onClick={modalToggle} />}
+      {!isLoggedIn && (
+        <ButtonComponent text={t('logIn')} onClick={modalToggle} />
+      )}
       {isLoggedIn && (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Typography sx={{ marginRight: '20px', color: '#e4e35a' }}>
-            Welcome, {userName}
+            {t('welcome')}, {userName}
           </Typography>
-          <ButtonComponent text="Log out" onClick={() => dispatch(logOut())} />
+          <ButtonComponent
+            text={t('logOut')}
+            onClick={() => dispatch(logOut())}
+          />
         </Box>
       )}
     </>

@@ -8,7 +8,7 @@ import Loader from 'components/Loader/Loader';
 import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
 import { ROUTES } from 'constants/routes';
-import selectors from 'redux/news/news-selectors';
+import newsSelectors from 'redux/news/news-selectors';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -19,7 +19,7 @@ const lazyPages = {
 };
 
 const App = () => {
-  const isLoading = useSelector(selectors.getIsLoading);
+  const isLoading = useSelector(newsSelectors.getIsLoading);
 
   return (
     <>

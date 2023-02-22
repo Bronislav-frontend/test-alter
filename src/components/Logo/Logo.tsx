@@ -4,7 +4,7 @@ import logoImage from 'assets/images/logo.jpg';
 
 const Logo = () => {
   return (
-    <Box sx={{ marginRight: '10px' }}>
+    <Box>
       <Link href="/">
         <Avatar src={logoImage} />
       </Link>

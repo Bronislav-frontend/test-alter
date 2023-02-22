@@ -1,8 +1,8 @@
 import { AppBar, Box, Toolbar } from '@mui/material';
-import Logo from 'components/Logo/Logo';
 import ModalComponent from 'components/ModalComponent/ModalComponent';
 import LoginForm from 'components/LoginForm/LoginForm';
 import AuthBar from 'components/AuthBar/AuthBar';
+import LangaguesBar from 'components/LangaguesBar/LangaguesBar';
 
 import { useModal } from 'hooks/useModal';
 import NavLinksList from 'components/NavLinksList/NavLinks';
@@ -23,8 +23,8 @@ const NavBar = () => {
             alignItems: 'center',
           }}
         >
+          <LangaguesBar />
           <Toolbar component="nav" variant="dense">
-            <Logo />
             <NavLinksList />
           </Toolbar>
           <AuthBar modalToggle={modalToggle} />

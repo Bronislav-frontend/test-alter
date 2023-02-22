@@ -1,5 +1,6 @@
 import { Typography, Box, Link, CardMedia, keyframes } from '@mui/material';
 import fundLogo from 'assets/images/fundLogo.svg';
+import { useTranslation } from 'react-i18next';
 
 const bounce = keyframes`
 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
@@ -7,6 +8,7 @@ const bounce = keyframes`
 60% {transform: translateY(-15px);} `;
 
 const Introduction = () => {
+  const { t } = useTranslation();
   return (
     <Box sx={{ paddingX: '60px' }}>
       <Box
@@ -16,24 +18,18 @@ const Introduction = () => {
           justifyContent: 'center',
           alignItems: 'center',
           marginTop: '40px',
-          padding: '100px',
+          padding: '60px',
           backgroundColor: 'hsla(0,0%,50%,0.3)',
         }}
       >
         <Typography variant="h1" sx={{ marginBottom: '20px', color: 'white' }}>
-          Hello!
+          {t('hello')}
         </Typography>
         <Typography
           variant="h4"
           sx={{ color: '#e4e4e4', textAlign: 'center', marginBottom: '20px' }}
         >
-          Thank you for visiting this site, it was made by Ukrainian Frontend
-          developer Voydylo Bronislav. Here you can find all the latest news
-          from USA, United Kingdom and my country, which is fighting for it's
-          own freedom and we need help. You can help by donation to funds that
-          are helping in this war. Every drop matters, so, please, help us
-          finish those crimes against humanity. For your comfort you can find a
-          link to one of those funds below.
+          {t('introduction')}
         </Typography>
         <Typography
           variant="h2"

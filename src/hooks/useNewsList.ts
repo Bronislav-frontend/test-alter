@@ -10,8 +10,6 @@ export const useNewsList = () => {
   const newsArray: NewsStateItem[] = useSelector(selectors.getNewsList);
   const nextPage: string = useSelector(selectors.getNextPageNews);
 
-  console.log(newsArray);
-
   useEffect(() => {
     dispatch(operations.fetchNews());
   }, [dispatch]);

@@ -1,6 +1,7 @@
 import { TextField, Typography, Container, Box } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import { logIn } from 'redux/auth/auth-slice';
 
@@ -22,6 +23,7 @@ interface IProps {
 const LoginForm = ({ modalClose }: IProps) => {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  const { t } = useTranslation();
 
   const onSubmit = (data: any) => {
     dispatch(logIn(data));
@@ -32,7 +34,7 @@ const LoginForm = ({ modalClose }: IProps) => {
     <Container component="main" maxWidth="xs">
       <Box sx={classes.paper}>
         <Typography component="h1" variant="h5">
-          LOG IN FORM
+          {t('form')}
         </Typography>
         <form
           style={{
@@ -52,7 +54,7 @@ const LoginForm = ({ modalClose }: IProps) => {
             })}
             fullWidth
             id="login"
-            label="Login"
+            label={t('login')}
             name="login"
             autoFocus
           />
@@ -65,12 +67,12 @@ const LoginForm = ({ modalClose }: IProps) => {
             })}
             fullWidth
             name="password"
-            label="Password"
+            label={t('pass')}
             type="password"
             id="password"
             sx={{ marginBottom: '60px' }}
           />
-          <ButtonComponent text="Log In" type="submit" />
+          <ButtonComponent text={t('logIn')} type="submit" />
         </form>
       </Box>
     </Container>
