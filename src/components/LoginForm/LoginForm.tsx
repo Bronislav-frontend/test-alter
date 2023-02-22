@@ -24,14 +24,22 @@ interface IProps {
 const LoginForm = ({ modalClose }: IProps) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { register, handleSubmit } = useForm();
   const { t } = useTranslation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: 'onBlur',
+  });
 
   const onSubmit = (data: any) => {
     dispatch(logIn(data));
     modalClose();
     navigate('/profile', { replace: true });
   };
+
+  console.log(errors);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -75,6 +83,9 @@ const LoginForm = ({ modalClose }: IProps) => {
             id="password"
             sx={{ marginBottom: '60px' }}
           />
+          {(errors.login || errors.password) && (
+            <Typography sx={{ color: 'red' }}>{t('error')}</Typography>
+          )}
           <ButtonComponent text={t('logIn')} type="submit" />
         </form>
       </Box>

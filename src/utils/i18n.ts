@@ -16,6 +16,7 @@ const resources = {
       login: 'Login',
       pass: 'Password',
       profilePage: 'Soon here will be a page of your profile',
+      loadMore: 'LOAD MORE',
       error: 'The login or pass is not correct',
       introduction:
         'Thank you for visiting this site, it was made by Ukrainian Frontend developer Bronislav. Here you can find all the latest news from USA, United Kingdom and my country, which is fighting for it`s own freedom and we need help. You can help by donation to funds that are helping our figthers in this war. Every drop matters, so, please, help us finish those crimes against humanity. For your comfort you can find a link to one of those funds below.',
@@ -34,6 +35,7 @@ const resources = {
       login: 'Логін',
       pass: 'Пароль',
       profilePage: 'Скоро тут буде сторінка Вашого профілю',
+      loadMore: 'ЗАВАНТАЖИТИ ЩЕ',
       error: 'Ім`я користувача або пароль введено неправильно.',
       introduction:
         'Дякую за візит цього сайту, він був зроблений українським Фронтенд розробником Броніславом. Тут Ви можете знайти всі останні новини з США, Англії і моєї країни, котра бореться за свою власну свободу і нам потрібна допомога. Ви можете допомгти задонативши в фонди, які допомогають нашим бійцям в цій війні. Кожна крапля важлива, тому, будь ласка, допоможіть нам  закінчити ті злочини проти людства. Для Вашого комфорту, Ви можете знайти посилання на один з таких фондів нижче.',

@@ -1,5 +1,6 @@
 import { Box, Grid } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
 import selectors from 'redux/news/news-selectors';
 import { useNewsList } from 'hooks/useNewsList';
@@ -11,6 +12,7 @@ import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
 import deafultNewsPicture from 'assets/images/default.png';
 
 const NewsList = () => {
+  const { t } = useTranslation();
   const { newsArray, onLoadMore } = useNewsList();
   const isLoading = useSelector(selectors.getIsLoading);
 
@@ -28,7 +30,7 @@ const NewsList = () => {
       </Grid>
       <Box display="flex" justifyContent="center" paddingBottom={4}>
         <ButtonComponent
-          text="Load more"
+          text={t('loadMore')}
           onClick={onLoadMore}
           isDisabled={isLoading}
         />
