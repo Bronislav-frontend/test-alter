@@ -14,9 +14,7 @@ const authSlice = createSlice({
     logIn: (state, { payload }) => {
       state.userName = payload.login;
       state.isLoggedIn = true;
-      toast.success(
-        `Welcome back, ${payload.login}, now you can go to Profile page`,
-      );
+      toast.success(`Welcome back, ${payload.login}`);
     },
     logOut: state => {
       state.userName = '';

@@ -24,15 +24,22 @@ const newsSlice = createSlice({
     builder.addCase(operations.fetchNews.pending, state => {
       state.isLoading = true;
     });
+
     builder.addCase(operations.fetchNews.fulfilled, (_, { payload }) => {
       return {
         isLoading: false,
         ...payload,
       };
     });
+
+    builder.addCase(operations.fetchNews.rejected, state => {
+      state.isLoading = false;
+    });
+
     builder.addCase(operations.fetchNextPageNews.pending, state => {
       state.isLoading = true;
     });
+
     builder.addCase(
       operations.fetchNextPageNews.fulfilled,
       (state, { payload }) => {
@@ -41,6 +48,10 @@ const newsSlice = createSlice({
         state.nextPage = payload.nextPage;
       },
     );
+
+    builder.addCase(operations.fetchNextPageNews.rejected, state => {
+      state.isLoading = false;
+    });
   },
 });
 

@@ -1,6 +1,7 @@
 import { TextField, Typography, Container, Box } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { logIn } from 'redux/auth/auth-slice';
@@ -21,6 +22,7 @@ interface IProps {
 }
 
 const LoginForm = ({ modalClose }: IProps) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const { t } = useTranslation();
@@ -28,6 +30,7 @@ const LoginForm = ({ modalClose }: IProps) => {
   const onSubmit = (data: any) => {
     dispatch(logIn(data));
     modalClose();
+    navigate('/profile', { replace: true });
   };
 
   return (

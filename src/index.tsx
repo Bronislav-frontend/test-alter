@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
-import './components/LangaguesBar/i18n';
+import './utils/i18n';
 
 import './index.css';
 import App from './components/App/App';
