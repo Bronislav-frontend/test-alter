@@ -30,7 +30,7 @@ const LoginForm = ({ modalClose }: IProps) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    mode: 'onBlur',
+    mode: 'onTouched',
   });
 
   const onSubmit = (data: any) => {
@@ -84,7 +84,11 @@ const LoginForm = ({ modalClose }: IProps) => {
             sx={{ marginBottom: '60px' }}
           />
           {(errors.login || errors.password) && (
-            <Typography sx={{ color: 'red' }}>{t('error')}</Typography>
+            <Typography
+              sx={{ color: 'red', textAlign: 'center', marginBottom: '20px' }}
+            >
+              {t('error')}
+            </Typography>
           )}
           <ButtonComponent text={t('logIn')} type="submit" />
         </form>
