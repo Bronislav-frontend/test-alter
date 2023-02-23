@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
 import {
   Grid,
   Typography,
@@ -11,6 +10,7 @@ import {
 import { removeNewsItem } from 'redux/news/news-slice';
 
 import closeIcon from 'assets/images/cross.svg';
+import { notificateDelete } from 'utils/notifications';
 
 interface IProps {
   image: string;
@@ -35,7 +35,7 @@ const NewsItem = ({ image, title, summary }: IProps) => {
         src={closeIcon}
         onClick={() => {
           dispatch(removeNewsItem(title));
-          toast.warn(`The new with a title ${title} was successfuly deleted`);
+          notificateDelete(title);
         }}
         sx={{
           position: 'absolute',

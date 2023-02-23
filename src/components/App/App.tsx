@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react';
-import { ToastContainer } from 'react-toastify';
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -9,8 +8,6 @@ import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
 import { ROUTES } from 'constants/routes';
 import newsSelectors from 'redux/news/news-selectors';
-
-import 'react-toastify/dist/ReactToastify.css';
 
 const lazyPages = {
   HomePage: lazy(() => import('pages/Homepage/HomePage')),
@@ -23,7 +20,6 @@ const App = () => {
 
   return (
     <>
-      <ToastContainer />
       <NavBar />
       {isLoading && <Loader />}
       <Suspense fallback={<Loader />}>

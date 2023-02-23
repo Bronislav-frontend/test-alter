@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { AuthState } from 'interfaces/interfaces';
-import { toast } from 'react-toastify';
+import { loginGreetings } from 'utils/notifications';
 
 const initialState: AuthState = {
   userName: '',
@@ -14,7 +14,7 @@ const authSlice = createSlice({
     logIn: (state, { payload }) => {
       state.userName = payload.login;
       state.isLoggedIn = true;
-      toast.success(`Welcome back, ${payload.login}`);
+      loginGreetings(payload.login);
     },
     logOut: state => {
       state.userName = '';

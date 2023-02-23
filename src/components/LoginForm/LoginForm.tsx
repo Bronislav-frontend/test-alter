@@ -39,8 +39,6 @@ const LoginForm = ({ modalClose }: IProps) => {
     navigate('/profile', { replace: true });
   };
 
-  console.log(errors);
-
   return (
     <Container component="main" maxWidth="xs">
       <Box sx={classes.paper}>
@@ -68,6 +66,7 @@ const LoginForm = ({ modalClose }: IProps) => {
             label={t('login')}
             name="login"
             autoFocus
+            autoComplete="off"
           />
           <TextField
             variant="outlined"

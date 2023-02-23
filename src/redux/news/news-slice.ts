@@ -22,35 +22,54 @@ const newsSlice = createSlice({
   },
   extraReducers: builder => {
     builder.addCase(operations.fetchNews.pending, state => {
-      state.isLoading = true;
+      return {
+        ...state,
+        isLoading: true,
+      };
     });
 
-    builder.addCase(operations.fetchNews.fulfilled, (_, { payload }) => {
+    builder.addCase(operations.fetchNews.fulfilled, (state, { payload }) => {
       return {
+        ...state,
         isLoading: false,
-        ...payload,
+        status: payload.status,
+        totalResults: payload.totalResults,
+        results: payload.results,
+        nextPage: payload.nextPage,
       };
     });
 
     builder.addCase(operations.fetchNews.rejected, state => {
-      state.isLoading = false;
+      return {
+        ...state,
+        isLoading: false,
+      };
     });
 
     builder.addCase(operations.fetchNextPageNews.pending, state => {
-      state.isLoading = true;
+      return {
+        ...state,
+        isLoading: true,
+      };
     });
 
     builder.addCase(
       operations.fetchNextPageNews.fulfilled,
       (state, { payload }) => {
-        state.isLoading = false;
-        state.results = [...state.results, ...payload.results];
-        state.nextPage = payload.nextPage;
+        return {
+          ...state,
+          nextPage: payload.nextPage,
+          isLoading: false,
+          results: [...state.results, ...payload.results],
+        };
       },
     );
 
     builder.addCase(operations.fetchNextPageNews.rejected, state => {
-      state.isLoading = false;
+      return {
+        ...state,
+        isLoading: false,
+      };
     });
   },
 });
