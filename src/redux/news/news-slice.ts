@@ -31,14 +31,10 @@ const newsSlice = createSlice({
       };
     });
 
-    builder.addCase(operations.fetchNews.fulfilled, (state, { payload }) => {
+    builder.addCase(operations.fetchNews.fulfilled, (_, { payload }) => {
       return {
-        ...state,
+        ...payload,
         isLoading: false,
-        status: payload.status,
-        totalResults: payload.totalResults,
-        results: payload.results,
-        nextPage: payload.nextPage,
       };
     });
 
