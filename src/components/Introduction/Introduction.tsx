@@ -10,7 +10,7 @@ const bounce = keyframes`
 const Introduction = () => {
   const { t } = useTranslation();
   return (
-    <Box sx={{ paddingX: '60px' }}>
+    <Box sx={{ paddingX: '60px', paddingBottom: '40px' }}>
       <Box
         sx={{
           display: 'flex',

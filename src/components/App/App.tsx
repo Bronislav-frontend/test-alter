@@ -8,6 +8,7 @@ import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 
 import { ROUTES } from 'constants/routes';
 import newsSelectors from 'redux/news/news-selectors';
+import Footer from 'components/Footer/Footer';
 
 const lazyPages = {
   HomePage: lazy(() => import('pages/Homepage/HomePage')),
@@ -34,6 +35,7 @@ const App = () => {
           </Route>
         </Routes>
       </Suspense>
+      <Footer />
     </>
   );
 };
