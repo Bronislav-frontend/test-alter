@@ -15,9 +15,12 @@ const newsSlice = createSlice({
   initialState,
   reducers: {
     removeNewsItem: (state, { payload }) => {
-      state.results = state.results.filter(
-        (item: NewsStateItem) => item.title !== payload,
-      );
+      return {
+        ...state,
+        results: state.results.filter(
+          (item: NewsStateItem) => item.title !== payload,
+        ),
+      };
     },
   },
   extraReducers: builder => {
