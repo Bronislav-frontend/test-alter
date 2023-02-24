@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 const containeStyles = {
   display: 'flex',
   justifyContent: 'center',
+  flexsHhrink: '0',
   backgroundColor: 'hsla(0,0%,50%,0.3)',
   paddingY: '20px',
 };

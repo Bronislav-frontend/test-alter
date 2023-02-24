@@ -6,6 +6,21 @@ interface IProps {
   children: React.ReactNode;
 }
 
+const styles = {
+  container: {
+    backgroundColor: '#477cdd',
+    display: 'flex',
+    flexDirection: 'column',
+    flexGrow: '1',
+    alignItems: 'center',
+    paddingY: '20px',
+  },
+  iconButton: {
+    color: 'white',
+    marginRight: 'auto',
+  },
+};
+
 const DrawerComponent = ({ children }: IProps) => {
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
 
@@ -16,23 +31,13 @@ const DrawerComponent = ({ children }: IProps) => {
         open={isOpenDrawer}
         onClose={() => setIsOpenDrawer(false)}
       >
-        <Box
-          sx={{
-            backgroundColor: '#477cdd',
-            display: 'flex',
-            flexDirection: 'column',
-            flexGrow: '1',
-            alignItems: 'center',
-          }}
-        >
-          {children}
-        </Box>
+        <Box sx={styles.container}>{children}</Box>
       </Drawer>
       <IconButton
-        sx={{ color: 'white', marginLeft: 'auto' }}
+        sx={styles.iconButton}
         onClick={() => setIsOpenDrawer(!isOpenDrawer)}
       >
-        <MenuIcon sx={{ color: 'white' }} />
+        <MenuIcon />
       </IconButton>
     </>
   );

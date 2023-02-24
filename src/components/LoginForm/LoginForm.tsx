@@ -23,7 +23,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column' as 'column',
     alignItems: 'center',
-    padding: '40px',
   },
   error: {
     color: 'red',
@@ -53,7 +52,7 @@ const LoginForm = ({ modalClose }: IProps) => {
   return (
     <Container component="main" maxWidth="xs">
       <Box sx={styles.paper}>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" textAlign="center">
           {t('form')}
         </Typography>
         <form style={styles.form} onSubmit={handleSubmit(onSubmit)}>

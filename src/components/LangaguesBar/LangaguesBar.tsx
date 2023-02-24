@@ -35,6 +35,10 @@ const styles = {
   },
   button: {
     color: 'white',
+    ':hover': {
+      backgroundColor: 'yellow',
+      color: 'blue',
+    },
   },
   selectedLang: {
     color: 'blue',

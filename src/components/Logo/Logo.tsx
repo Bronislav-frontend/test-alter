@@ -9,6 +9,7 @@ const styles = {
   link: {
     display: 'flex',
     justifyContent: 'center',
+    marginBottom: '20px',
   },
 };
 

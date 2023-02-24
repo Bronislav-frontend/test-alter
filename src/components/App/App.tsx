@@ -9,6 +9,7 @@ import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
 import { ROUTES } from 'constants/routes';
 import newsSelectors from 'redux/news/news-selectors';
 import Footer from 'components/Footer/Footer';
+import { Box } from '@mui/material';
 
 const lazyPages = {
   HomePage: lazy(() => import('pages/Homepage/HomePage')),
@@ -20,7 +21,7 @@ const App = () => {
   const isLoading = useSelector(newsSelectors.getIsLoading);
 
   return (
-    <>
+    <Box sx={{ flex: '1 0 auto' }}>
       <NavBar />
       {isLoading && <Loader />}
       <Suspense fallback={<Loader />}>
@@ -36,7 +37,7 @@ const App = () => {
         </Routes>
       </Suspense>
       <Footer />
-    </>
+    </Box>
   );
 };
 
