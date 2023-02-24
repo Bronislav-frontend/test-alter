@@ -18,7 +18,7 @@ const NewsList = () => {
 
   return (
     <>
-      <Grid container padding={4} spacing={6}>
+      <Grid component="ul" container padding={4} spacing={6}>
         {newsArray.map((newsItem: NewsStateItem, index) => (
           <NewsItem
             key={`${index} + ${newsItem.title}`}

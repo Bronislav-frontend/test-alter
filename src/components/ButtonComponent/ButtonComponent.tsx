@@ -7,6 +7,12 @@ interface IProps {
   onClick?: () => void;
 }
 
+const buttonStyles = {
+  backgroundColor: 'yellow',
+  color: 'blue',
+  ':hover': { backgroundColor: 'white' },
+};
+
 const ButtonComponent = ({
   text,
   type = 'button',
@@ -19,7 +25,7 @@ const ButtonComponent = ({
         type={type}
         variant="outlined"
         onClick={onClick}
-        sx={{ backgroundColor: '#e4e35a', color: '#c444cf' }}
+        sx={buttonStyles}
         disabled={isDisabled}
       >
         {text}

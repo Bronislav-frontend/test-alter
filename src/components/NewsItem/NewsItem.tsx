@@ -22,6 +22,33 @@ interface IProps {
   summary: string;
 }
 
+const styles = {
+  gridItem: {
+    cursor: 'pointer',
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'relative',
+    overflow: 'hidden',
+  },
+  closeIcon: {
+    position: 'absolute',
+    right: '4px',
+    top: '50px',
+    width: '20px',
+    height: '20px',
+    cursor: 'pointer',
+    backgroundColor: 'grey',
+  },
+  cardImage: {
+    borderRadius: '8px 8px 0 0',
+    minHeight: '450px',
+  },
+  cardContent: {
+    backgroundColor: 'hsla(0,0%,50%,0.3)',
+    flexGrow: '1',
+  },
+};
+
 const NewsItem = ({ image, title, summary }: IProps) => {
   const { isOpen, modalToggle } = useModal();
   const dispatch = useDispatch();
@@ -37,12 +64,8 @@ const NewsItem = ({ image, title, summary }: IProps) => {
         xs={12}
         md={6}
         lg={4}
-        position="relative"
-        overflow="hidden"
-        display="flex"
-        flexDirection="column"
         onClick={modalToggle}
-        sx={{ cursor: 'pointer' }}
+        sx={styles.gridItem}
       >
         <Avatar
           src={closeIcon}
@@ -50,29 +73,16 @@ const NewsItem = ({ image, title, summary }: IProps) => {
             dispatch(removeNewsItem(title));
             notificateDelete(title);
           }}
-          sx={{
-            position: 'absolute',
-            right: '4px',
-            top: '50px',
-            width: '20px',
-            height: '20px',
-            cursor: 'pointer',
-            backgroundColor: 'grey',
-          }}
+          sx={styles.closeIcon}
         />
 
         <CardMedia
           component="img"
           image={image}
           alt="photo of a new"
-          sx={{ borderRadius: '8px 8px 0 0', minHeight: '450px' }}
+          sx={styles.cardImage}
         />
-        <CardContent
-          sx={{
-            backgroundColor: 'hsla(0,0%,50%,0.3)',
-            flexGrow: '1',
-          }}
-        >
+        <CardContent sx={styles.cardContent}>
           <Typography gutterBottom variant="h5" textAlign="center">
             {title}
           </Typography>

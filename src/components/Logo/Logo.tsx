@@ -1,11 +1,24 @@
-import { Avatar, Box, Link } from '@mui/material';
+import { Avatar, Box, Link, useTheme, useMediaQuery } from '@mui/material';
 
 import logoImage from 'assets/images/logo.jpg';
 
+const styles = {
+  container: {
+    marginRight: '24px',
+  },
+  link: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+};
+
 const Logo = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
-    <Box>
-      <Link href="/">
+    <Box sx={[!matches && styles.container]}>
+      <Link href="/" sx={[matches && styles.link]}>
         <Avatar src={logoImage} />
       </Link>
     </Box>

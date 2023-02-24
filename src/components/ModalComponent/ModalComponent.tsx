@@ -6,6 +6,19 @@ interface IProps {
   children?: React.ReactNode;
 }
 
+const modalStyles = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  overflowY: 'auto',
+  maxHeight: '80vh',
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 const ModalComponent = ({ isOpen, modalClose, children }: IProps) => {
   return (
     <Modal
@@ -14,22 +27,7 @@ const ModalComponent = ({ isOpen, modalClose, children }: IProps) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          overflowY: 'auto',
-          maxHeight: '80vh',
-          bgcolor: 'background.paper',
-          border: '2px solid #000',
-          boxShadow: 24,
-          p: 4,
-        }}
-      >
-        {children}
-      </Box>
+      <Box sx={modalStyles}>{children}</Box>
     </Modal>
   );
 };

@@ -1,40 +1,49 @@
-import { Typography, Box, Link, CardMedia, keyframes } from '@mui/material';
-import fundLogo from 'assets/images/fundLogo.svg';
 import { useTranslation } from 'react-i18next';
+import { Typography, Box, Link, CardMedia } from '@mui/material';
+import { bounceAnimation } from 'utils/bounceAnimation';
+import fundLogo from 'assets/images/fundLogo.svg';
 
-const bounce = keyframes`
-0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
-40% {transform: translateY(-20px);} 
-60% {transform: translateY(-15px);} `;
+const styles = {
+  container: {
+    paddingX: '60px',
+    paddingBottom: '40px',
+  },
+  box: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '40px',
+    padding: '60px',
+    backgroundColor: 'hsla(0,0%,50%,0.3)',
+  },
+  title: {
+    marginBottom: '20px',
+    color: 'white',
+  },
+  text: {
+    color: '#e4e4e4',
+    textAlign: 'center',
+    marginBottom: '20px',
+  },
+  handSign: {
+    color: 'white',
+    animation: `${bounceAnimation} 1s infinite ease`,
+  },
+};
 
 const Introduction = () => {
   const { t } = useTranslation();
   return (
-    <Box sx={{ paddingX: '60px', paddingBottom: '40px' }}>
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '40px',
-          padding: '60px',
-          backgroundColor: 'hsla(0,0%,50%,0.3)',
-        }}
-      >
-        <Typography variant="h1" sx={{ marginBottom: '20px', color: 'white' }}>
+    <Box sx={styles.container}>
+      <Box sx={styles.box}>
+        <Typography variant="h1" sx={styles.title}>
           {t('hello')}
         </Typography>
-        <Typography
-          variant="h4"
-          sx={{ color: '#e4e4e4', textAlign: 'center', marginBottom: '20px' }}
-        >
+        <Typography variant="h4" sx={styles.text}>
           {t('introduction')}
         </Typography>
-        <Typography
-          variant="h2"
-          sx={{ color: 'white', animation: `${bounce} 1s infinite ease` }}
-        >
+        <Typography variant="h2" sx={styles.handSign}>
           &#9759;
         </Typography>
         <Link
@@ -43,7 +52,6 @@ const Introduction = () => {
           rel="norefferer"
           variant="h3"
           underline="none"
-          sx={{ color: '#e7e35b' }}
         >
           <CardMedia
             component="img"

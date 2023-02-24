@@ -21,16 +21,19 @@ code {
 }
 
 a {
+  display: flex;
+  align-items: center;
+  text-align: center;
   text-decoration: none;
   padding: 5px;
 }
 
 .active {
   color: #477cdd;
-  background-color: #e4e35a;
+  background-color: white;
   border-radius: 4px;
 }
 
 .pending {
-  color: #e4e35a;
+  color: yellow;
 }

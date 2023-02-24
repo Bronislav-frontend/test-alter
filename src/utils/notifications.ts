@@ -11,7 +11,7 @@ export const notificateError = (error: unknown) =>
 
 export const notificateDelete = (title: string) =>
   Notiflix.Notify.warning(
-    `The new with a title ${title} was successfuly deleted`,
+    `The piece of news with a title ${title} was successfuly deleted`,
   );
 
 Notiflix.Notify.init({

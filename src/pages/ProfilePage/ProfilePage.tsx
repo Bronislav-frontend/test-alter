@@ -12,7 +12,7 @@ const ProfilePage = () => {
         justifyContent: 'center',
       }}
     >
-      <Typography variant="h3" sx={{ color: 'white' }}>
+      <Typography variant="h3" sx={{ color: 'white', textAlign: 'center' }}>
         {t('profilePage')}
       </Typography>
     </Box>

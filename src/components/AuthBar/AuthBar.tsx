@@ -11,6 +11,17 @@ interface IProps {
   modalToggle: () => void;
 }
 
+const styles = {
+  box: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  text: {
+    marginRight: '20px',
+    color: 'white',
+  },
+};
+
 const AuthBar = ({ modalToggle }: IProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -22,8 +33,8 @@ const AuthBar = ({ modalToggle }: IProps) => {
         <ButtonComponent text={t('logIn')} onClick={modalToggle} />
       )}
       {isLoggedIn && (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Typography sx={{ marginRight: '20px', color: '#e4e35a' }}>
+        <Box sx={styles.box}>
+          <Typography sx={styles.text}>
             {t('welcome')}, {userName}
           </Typography>
           <ButtonComponent

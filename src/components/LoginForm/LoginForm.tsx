@@ -8,18 +8,29 @@ import { logIn } from 'redux/auth/auth-slice';
 
 import ButtonComponent from 'components/ButtonComponent/ButtonComponent';
 
-const classes = {
+interface IProps {
+  modalClose: () => void;
+}
+
+const styles = {
   paper: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  form: {
+    display: 'flex',
+    flexDirection: 'column' as 'column',
+    alignItems: 'center',
+    padding: '40px',
+  },
+  error: {
+    color: 'red',
+    textAlign: 'center',
+    marginBottom: '20px',
+  },
 };
-
-interface IProps {
-  modalClose: () => void;
-}
 
 const LoginForm = ({ modalClose }: IProps) => {
   const navigate = useNavigate();
@@ -41,19 +52,11 @@ const LoginForm = ({ modalClose }: IProps) => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Box sx={classes.paper}>
+      <Box sx={styles.paper}>
         <Typography component="h1" variant="h5">
           {t('form')}
         </Typography>
-        <form
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: '40px',
-          }}
-          onSubmit={handleSubmit(onSubmit)}
-        >
+        <form style={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <TextField
             variant="outlined"
             margin="normal"
@@ -83,11 +86,7 @@ const LoginForm = ({ modalClose }: IProps) => {
             sx={{ marginBottom: '60px' }}
           />
           {(errors.login || errors.password) && (
-            <Typography
-              sx={{ color: 'red', textAlign: 'center', marginBottom: '20px' }}
-            >
-              {t('error')}
-            </Typography>
+            <Typography sx={styles.error}>{t('error')}</Typography>
           )}
           <ButtonComponent text={t('logIn')} type="submit" />
         </form>
