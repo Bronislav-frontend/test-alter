@@ -15,6 +15,7 @@ const lazyPages = {
   HomePage: lazy(() => import('pages/Homepage/HomePage')),
   NewsPage: lazy(() => import('pages/NewsPage/NewsPage')),
   ProfilePage: lazy(() => import('pages/ProfilePage/ProfilePage')),
+  ErrorPage: lazy(() => import('pages/ErrorPage/ErrorPage')),
 };
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
       {isLoading && <Loader />}
       <Suspense fallback={<Loader />}>
         <Routes>
+          <Route path="*" element={<lazyPages.ErrorPage />} />
           <Route path={ROUTES.HOME.path} element={<lazyPages.HomePage />} />
           <Route path={ROUTES.NEWS.path} element={<lazyPages.NewsPage />} />
           <Route path={ROUTES.PROFILE.path} element={<PrivateRoute />}>
