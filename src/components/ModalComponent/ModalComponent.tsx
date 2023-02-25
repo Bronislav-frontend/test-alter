@@ -1,4 +1,5 @@
-import { Modal, Box, useMediaQuery, useTheme } from '@mui/material';
+import { Modal, Box, Avatar, useMediaQuery, useTheme } from '@mui/material';
+import closeIcon from 'assets/images/cross.svg';
 
 interface IProps {
   isOpen: boolean;
@@ -17,12 +18,21 @@ const styles = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-
     p: 4,
+    borderRadius: '4px',
   },
   mobModal: {
     padding: '20px 5px',
     minWidth: '80vw',
+  },
+  closeIcon: {
+    backgroundColor: 'grey',
+    position: 'absolute',
+    width: '20px',
+    height: '20px',
+    top: '8px',
+    right: '8px',
+    cursor: 'pointer',
   },
 };
 
@@ -37,7 +47,10 @@ const ModalComponent = ({ isOpen, modalClose, children }: IProps) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={[styles.modal, matches && styles.mobModal]}>{children}</Box>
+      <Box sx={[styles.modal, matches && styles.mobModal]}>
+        <Avatar src={closeIcon} onClick={modalClose} sx={styles.closeIcon} />
+        {children}
+      </Box>
     </Modal>
   );
 };

@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, List } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +18,7 @@ const NewsList = () => {
 
   return (
     <>
-      <Grid component="ul" container padding={4} spacing={6}>
+      <List sx={{ display: 'flex', flexDirection: 'column' }}>
         {newsArray.map((newsItem: NewsStateItem, index) => (
           <NewsItem
             key={`${index} + ${newsItem.title}`}
@@ -27,7 +27,7 @@ const NewsList = () => {
             summary={newsItem.content ? newsItem.content : newsItem.description}
           />
         ))}
-      </Grid>
+      </List>
       <Box display="flex" justifyContent="center" paddingBottom={4}>
         <ButtonComponent
           text={t('loadMore')}

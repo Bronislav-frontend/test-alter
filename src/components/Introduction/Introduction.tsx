@@ -12,7 +12,10 @@ import fundLogo from 'assets/images/fundLogo.svg';
 
 const styles = {
   container: {
+    display: 'flex',
+    alignItems: 'center',
     padding: '40px',
+    height: '100vh',
   },
   box: {
     display: 'flex',
@@ -50,11 +53,10 @@ const Introduction = () => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down('md'));
 
-  console.log(matches);
   return (
     <Box sx={[!matches && styles.container]}>
       <Box sx={[matches ? styles.mobBox : styles.box]}>
-        <Typography variant="h1" sx={styles.title}>
+        <Typography variant="h2" sx={styles.title}>
           {t('hello')}
         </Typography>
         <Typography variant="h4" sx={styles.text}>
