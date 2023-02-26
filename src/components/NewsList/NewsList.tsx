@@ -18,7 +18,9 @@ const NewsList = () => {
 
   return (
     <>
-      <List sx={{ display: 'flex', flexDirection: 'column' }}>
+      <List
+        sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+      >
         {newsArray.map((newsItem: NewsStateItem, index) => (
           <NewsItem
             key={`${index} + ${newsItem.title}`}
