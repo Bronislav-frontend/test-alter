@@ -1,9 +1,12 @@
-import { Rings } from 'react-loader-spinner';
+import { InfinitySpin } from 'react-loader-spinner';
+
 import './Loader.css';
 
 const Loader = () => {
   return (
-    <Rings color="aqua" height={250} width={250} wrapperClass={'loader'} />
+    <div className="loader">
+      <InfinitySpin width="200" color="aqua" />
+    </div>
   );
 };
 
